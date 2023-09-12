@@ -1,7 +1,7 @@
 
 ![Slice 4](https://github.com/one-developments/one_register-qb/assets/144623082/c1fa5ca6-9f78-481e-bd3d-d54aceefca58)
 
-# one_register-qb
+# one_register-esx
 Register Menu For Fivem ESX [FREE VERSION]
 
 ![image 6](https://github.com/one-developments/one_register-qb/assets/144623082/de8ce237-aa01-4a4d-b228-b971f7f433cb)
