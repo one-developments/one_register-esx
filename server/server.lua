@@ -43,7 +43,6 @@ local function deleteIdentity(xPlayer)
         xPlayer.set("dateofbirth", nil)
         xPlayer.set("sex", nil)
         xPlayer.set("height", nil)
-        xPlayer.set("story", nil)
         deleteIdentityFromDatabase(xPlayer)
     end
 end
@@ -74,7 +73,6 @@ local function setIdentity(xPlayer)
         xPlayer.set("dateofbirth", currentIdentity.dateOfBirth)
         xPlayer.set("sex", currentIdentity.sex)
         xPlayer.set("height", currentIdentity.height)
-        xPlayer.set("story", currentIdentity.story)
         TriggerClientEvent("esx_identity:setPlayerData", xPlayer.source, currentIdentity)
         if currentIdentity.saveToDatabase then
             saveIdentityToDatabase(xPlayer.identifier, currentIdentity)
@@ -85,7 +83,7 @@ end
 
 local function checkIdentity(xPlayer)
     MySQL.single(
-        "SELECT firstname, lastname, dateofbirth, sex, height, story FROM users WHERE identifier = ?",
+        "SELECT firstname, lastname, dateofbirth, sex, height FROM users WHERE identifier = ?",
         { xPlayer.identifier },
         function(result)
             if result then
@@ -96,7 +94,6 @@ local function checkIdentity(xPlayer)
                         dateOfBirth = result.dateofbirth,
                         sex = result.sex,
                         height = result.height,
-                        story = result.story,
                     }
 
                     alreadyRegistered[xPlayer.identifier] = true
@@ -121,7 +118,7 @@ if not multichar then
 
         if identifier then
             MySQL.single(
-                "SELECT firstname, lastname, dateofbirth, sex, height, story FROM users WHERE identifier = ?",
+                "SELECT firstname, lastname, dateofbirth, sex, height FROM users WHERE identifier = ?",
                 { identifier },
                 function(result)
                     if result then
@@ -132,7 +129,6 @@ if not multichar then
                                 dateOfBirth = result.dateofbirth,
                                 sex = result.sex,
                                 height = result.height,
-                                story = result.story,
                             }
 
                             alreadyRegistered[identifier] = true
@@ -183,7 +179,6 @@ if not multichar then
             xPlayer.set("dateofbirth", currentIdentity.dateOfBirth)
             xPlayer.set("sex", currentIdentity.sex)
             xPlayer.set("height", currentIdentity.height)
-            xPlayer.set("story", currentIdentity.story)
             TriggerClientEvent("esx_identity:setPlayerData", xPlayer.source, currentIdentity)
             if currentIdentity.saveToDatabase then
                 saveIdentityToDatabase(xPlayer.identifier, currentIdentity)
@@ -214,7 +209,6 @@ ESX.RegisterServerCallback("bcs_identity:registerIdentity", function(source, cb,
                 dateOfBirth = data.dateofbirth,
                 sex = data.sex,
                 height = data.height,
-                story = data.description,
             }
             local currentIdentity = playerIdentity[xPlayer.identifier]
             xPlayer.setName(("%s %s"):format(currentIdentity.firstName, currentIdentity.lastName))
