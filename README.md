@@ -1,3 +1,10 @@
+# Discord 
+
+Join The Discord And Get 1 Free Extra Themes
+
+https://discord.gg/VvcnT3J5CF
+
+
 
 ![Slice 4](https://github.com/one-developments/one_register-qb/assets/144623082/c1fa5ca6-9f78-481e-bd3d-d54aceefca58)
 
